@@ -1,0 +1,42 @@
+Tudo que está fora na pasta principal e que está com o . na frente, ou ele é 
+um arquivo de desenvolvimento ou ele não é para sair de nossa máquina.
+Por exemplo o .env é pessoal, ele não será mostrado para ninguém.
+
+
+
+Pasta docs, todos os documentos que você pode querer ver sobre o projeto estão lá.
+
+Pasta frontend, ainda não tem, mas será a interface para o cliente poder interagir com o agente.
+
+Agora precisamos saber onde a gente manipula o agente, onde que isso fica?
+Como o objetivo principal é criar um agente, eu gosto de colocar o que é principal do sistema na pasta 
+SRC.
+    Nele terá as pastas agents, server, shared e worker.
+
+    Na pasta Agents foi divido em diferentes categorias: 
+        - tools
+            - seria as ferramentas dos nossos agentes. 
+                - Exemplo: se você quer que o agente consiga consultar a previsão do tempo, você vai criar
+                uma ferramenta para isso e vai colocar nessa pasta.
+                - Exemplo 2: Se você quer uma ferramenta de busca na internet, você vai criar uma ferramenta
+                para isso e vai colocar nessa pasta.
+        -middleware
+            - 
+    
+        - Catalog
+            - onde ficará o agentão, agente raiz que vai gerenciar os outros agentes.
+            ele será responsável por receber a mensagem e decidir qual agente vai cuidar dela. 
+            - Para cada agente que eu queria gerar ele terá um padrão de estrutura.
+                - __init__.py
+                - agent.py 
+                    - Aqui é onde está de fato o nosso agente. A inteligência do agente está aqui.
+                    - E o que ele faz? Ele está importando diferentes bibliotecas, tem a função de criar o agente e cria o agente.
+                - prompts.py 
+                    - é onde fica os nossos prompts.
+                    - A boa prática é colocar o prompt fora do arquivo do agente.
+                - graph.py
+                    - Ele importa o build_graph() que é a função para construir o agente.
+                    - Quando a gente for colocar em produção é importante que esse build_graph esteja separado do langgraph.json
+                    Então, isso é pulo do gato, pra gente conseguir usar o mesmo ambiente que a gente desenvolve
+                    para o mesmo ambiente que a gente vai colocar em produção sem precisar fazer nenhuma modificação no código.
+    
