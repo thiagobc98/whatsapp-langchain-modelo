@@ -28,20 +28,21 @@ dev = [
     "httpx==0.28.1",
     "langgraph-sdk==0.3.12",
 ]
-
+# Ruff verifica sintaxe, imports, estilo e consistencia do codigo.
 [tool.ruff]
-line-length = 88
-target-version = "py311"
+line-length = 88  # tamanho maximo de uma linha python, ou seja, uma linha muito longa vira duas
+target-version = "py311" # versao do python que ele irá olhar, aqui o 3.11
 
 [tool.ruff.format]
-quote-style = "double"
+quote-style = "double"  # usa aspas duplas em vez de aspas simples
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP"]
+select = ["E", "F", "I", "UP"] # E = erros de estilo, F = erros de sintaxe, I = importaçoes desnecessarias, UP = uso de importações não padronizadas
 
+# Pyright analisa tipos e contratos entre funcoes.
 [tool.pyright]
-pythonVersion = "3.11"
-typeCheckingMode = "standard"
+pythonVersion = "3.11" # versão do python que ele irá olhar, aqui o 3.11
+typeCheckingMode = "standard" # "off" = desliga, "basic" = só tipos padrões, "standard" = tipos padrões + tipos externos, "strictest" = tipos padrões + tipos externos + obrigatório declarar tipos em todas as funções.
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
