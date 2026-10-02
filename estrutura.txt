@@ -21,7 +21,9 @@ SRC.
                 - Exemplo 2: Se você quer uma ferramenta de busca na internet, você vai criar uma ferramenta
                 para isso e vai colocar nessa pasta.
         -middleware
-            - 
+            - Ele é uma forma de você interceptar a chamada ao seu agente de alguma maneira, 
+            ele pode ser uma interceptção antes de chegar no agente ou depois que o agente já fez alguma coisa,
+            antes da resposta ou depois da resposta ou entre ferramentas. 
     
         - Catalog
             - onde ficará o agentão, agente raiz que vai gerenciar os outros agentes.
